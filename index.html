@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Upload and Viewer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Home Interface -->
+        <div id="homeInterface">
+            <h1>PDF Upload and Viewer</h1>
+            <!-- Search and Upload buttons -->
+            <div class="controls">
+                <input type="text" id="searchInput" placeholder="Search PDFs..." onkeyup="searchPDFs()">
+                <label for="pdfUpload" class="upload-btn">Upload PDF</label>
+                <input type="file" id="pdfUpload" name="pdf" accept=".pdf" style="display: none" onchange="uploadPDF()">
+            </div>
+            <h2>Uploaded PDFs</h2>
+            <div id="fileList"></div>
+        </div>
+
+        <!-- PDF Viewer Interface -->
+        <div id="pdfViewerInterface" style="display: none;">
+            <button id="backButton" onclick="backToHome()">Back</button>
+            <h2>PDF Viewer</h2>
+            <div id="pdfViewerControls">
+                <button id="prevPage" onclick="goToPage('prev')">Previous</button>
+                <button id="nextPage" onclick="goToPage('next')">Next</button>
+            </div>
+            <div id="pdfViewer"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
